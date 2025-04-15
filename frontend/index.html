@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ClickHouse - Flat File Ingestion Tool</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Data Ingestion Tool</h1>
+
+    <div class="section">
+      <label for="source">Select Source:</label>
+      <select id="source">
+        <option value="clickhouse">ClickHouse</option>
+        <option value="flatfile">Flat File</option>
+      </select>
+    </div>
+
+    <div class="section" id="clickhouse-config">
+      <h2>ClickHouse Configuration</h2>
+      <input type="text" id="host" placeholder="Host (e.g. localhost)" />
+      <input type="text" id="port" placeholder="Port (e.g. 8123)" />
+      <input type="text" id="database" placeholder="Database Name" />
+      <input type="text" id="user" placeholder="Username" />
+      <input type="text" id="jwt" placeholder="JWT Token" />
+    </div>
+
+    <div class="section" id="flatfile-config" style="display: none;">
+      <h2>Flat File Configuration</h2>
+      <input type="file" id="flatfile" accept=".csv" />
+      <input type="text" id="delimiter" placeholder="Delimiter (e.g. ,)" />
+    </div>
+
+    <div class="section">
+      <button id="connectBtn">Connect</button>
+      <button id="loadColumnsBtn">Load Columns</button>
+    </div>
+
+    <div class="section" id="columns-section" style="display: none;">
+      <h2>Select Columns</h2>
+      <div id="columnsContainer"></div>
+    </div>
+
+    <div class="section">
+      <button id="startIngestionBtn">Start Ingestion</button>
+    </div>
+
+    <div class="section" id="status-area">
+      <h2>Status</h2>
+      <p id="statusText">Idle</p>
+    </div>
+
+    <div class="section" id="result-area">
+      <h2>Result</h2>
+      <p id="resultText"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
